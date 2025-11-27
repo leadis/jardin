@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Tog Multiservices Groupe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS pour la palette de couleurs */
+        :root {
+            --primary-blue: #1e88e5;
+            --secondary-blue: #64b5f6;
+            --light-blue: #e3f2fd;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Styles du header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Section Hero À Propos */
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(30, 136, 229, 0.85), rgba(100, 181, 246, 0.85)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .about-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Section Notre Histoire */
+        .our-story {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-blue);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .story-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-text h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .story-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--secondary-blue);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid var(--white);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid var(--white);
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -40px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -40px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Section Valeurs */
+        .values {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-blue);
+            font-size: 30px;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .value-card p {
+            color: #666;
+        }
+
+        /* Section Équipe */
+        .team {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-info {
+            padding: 25px;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .member-position {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .member-bio {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .member-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .member-social a:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        /* Section Chiffres */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(rgba(30, 136, 229, 0.9), rgba(100, 181, 246, 0.9)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            padding: 30px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Section CTA */
+        .cta {
+            padding: 100px 0;
+            background-color: var(--gray);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .story-content {
+                flex-direction: column;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: 10px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+                border-right: 10px solid var(--white);
+                border-left: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">TMG</div>
+                <div class="logo-text">Tog Multiservices</div>
+            </a>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Nos Services</a></li>
+                    <li><a href="produits.html">Nos Produits</a></li>
+                    <li><a href="apropos.html" class="active">À Propos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Hero À Propos -->
+    <section class="about-hero">
+        <div class="container about-hero-content">
+            <h1>Notre Histoire & Notre Mission</h1>
+            <p>Découvrez l'histoire, les valeurs et l'équipe derrière Tog Multiservices Groupe, votre partenaire de confiance depuis plus de 10 ans.</p>
+            <a href="#our-story" class="btn btn-outline">Découvrir notre histoire</a>
+        </div>
+    </section>
+
+    <!-- Section Notre Histoire -->
+    <section class="our-story" id="our-story">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Histoire</h2>
+                <p>De nos humbles débuts à devenir un leader multiservices au Togo</p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text fade-in">
+                    <h3>Une Vision Devenue Réalité</h3>
+                    <p>Fondé en 2010 par M. Koffi Adjamonsi, Tog Multiservices Groupe est né d'une vision simple mais ambitieuse : offrir des services de qualité dans divers secteurs pour répondre aux besoins croissants des entreprises et particuliers au Togo.</p>
+                    <p>Au départ spécialisé dans l'entretien et le jardinage, nous avons rapidement élargi notre gamme de services pour inclure l'hôtellerie, la sécurité, les services traiteur et bien d'autres domaines.</p>
+                    <p>Aujourd'hui, avec plus de 50 employés dévoués et des centaines de clients satisfaits, nous continuons à innover et à nous adapter pour répondre aux défis du marché tout en maintenant notre engagement envers l'excellence.</p>
+                </div>
+                <div class="story-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Équipe Tog Multiservices">
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <h3>Fondation</h3>
+                        <p>Création de Tog Multiservices avec un focus initial sur les services d'entretien et de jardinage.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2013</div>
+                    <div class="timeline-content">
+                        <h3>Expansion</h3>
+                        <p>Élargissement de nos services pour inclure l'hôtellerie et la restauration avec nos premiers contrats majeurs.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-content">
+                        <h3>Innovation</h3>
+                        <p>Lancement de nos services de sécurité et d'investigation, répondant à un besoin croissant du marché.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>Diversification</h3>
+                        <p>Introduction des services traiteur et de location de matériels, complétant notre offre multiservices.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Leadership</h3>
+                        <p>Reconnaissance comme leader multiservices au Togo avec plus de 50 employés et des centaines de clients satisfaits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Valeurs -->
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Valeurs</h2>
+                <p>Les principes qui guident chacune de nos actions et décisions</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Nous nous engageons à fournir des services de la plus haute qualité, en dépassant constamment les attentes de nos clients.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Intégrité</h3>
+                    <p>Nous opérons avec transparence et honnêteté dans toutes nos relations commerciales et interactions avec nos clients.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>Nous croyons en la puissance du travail d'équipe, tant en interne qu'avec nos clients et partenaires.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Nous adoptons constamment de nouvelles technologies et méthodes pour améliorer nos services et processus.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Engagement Communautaire</h3>
+                    <p>Nous nous investissons dans le développement de notre communauté locale à travers diverses initiatives sociales.</p>
+                </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Durabilité</h3>
+                    <p>Nous intégrons des pratiques écologiques dans nos opérations pour minimiser notre impact environnemental.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Équipe -->
+    <section class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Équipe de Direction</h2>
+                <p>Rencontrez les leaders qui guident Tog Multiservices Groupe vers l'excellence</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Koffi Adjamonsi">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Koffi Adjamonsi</h3>
+                        <span class="member-position">Fondateur & PDG</span>
+                        <p class="member-bio">Visionnaire et entrepreneur passionné, Koffi a fondé Tog Multiservices avec la conviction que la qualité et la diversité des services sont essentielles au succès.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Afi Mensah">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Afi Mensah</h3>
+                        <span class="member-position">Directrice des Opérations</span>
+                        <p class="member-bio">Afi supervise toutes les opérations quotidiennes avec une expertise remarquable en gestion de projet et optimisation des processus.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Komlan Agbeto">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Komlan Agbeto</h3>
+                        <span class="member-position">Directeur Commercial</span>
+                        <p class="member-bio">Avec plus de 15 ans d'expérience en vente et marketing, Komlan développe constamment de nouvelles opportunités commerciales pour l'entreprise.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eyram Dosseh">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Eyram Dosseh</h3>
+                        <span class="member-position">Directrice des Ressources Humaines</span>
+                        <p class="member-bio">Eyram veille au bien-être et au développement professionnel de nos employés, créant un environnement de travail positif et productif.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Chiffres -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">13+</span>
+                    <span class="stat-label">Années d'Expérience</span>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Clients Satisfaits</span>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Employés Dévoués</span>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Secteurs d'Activité</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in">Prêt à Collaborer Avec Nous ?</h2>
+            <p class="fade-in">Rejoignez nos nombreux clients satisfaits et découvrez comment Tog Multiservices Groupe peut répondre à tous vos besoins en services professionnels.</p>
+            <a href="contact.html" class="btn fade-in">Contactez-Nous Aujourd'hui</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tog Multiservices</h3>
+                    <p>Votre partenaire de confiance pour tous vos besoins en services multisectoriels. Qualité, professionnalisme et innovation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Nos Services</a></li>
+                        <li><a href="produits.html">Nos Produits</a></li>
+                        <li><a href="apropos.html">À Propos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Nos Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#hotellerie">Hôtellerie & Restauration</a></li>
+                        <li><a href="services.html#entretien">Entretien & Jardinage</a></li>
+                        <li><a href="services.html#traiteur">Services Traiteur</a></li>
+                        <li><a href="services.html#securite">Sécurité & Investigation</a></li>
+                        <li><a href="services.html#briquetterie">Briquetterie</a></li>
+                        <li><a href="services.html#phyto">Produits Phytosanitaires</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contactez-nous</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Avenue des Services, Lomé, Togo</li>
+                        <li><i class="fas fa-phone"></i> +228 12 34 56 78</li>
+                        <li><i class="fas fa-envelope"></i> info@togmultiservices.com</li>
+                        <li><i class="fas fa-clock"></i> Lun - Ven: 8h00 - 18h00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tog Multiservices Groupe. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Animation au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Vérifier au chargement
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Vérifier au défilement
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Animation des chiffres
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const animateNumbers = () => {
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
+                }, 20);
+            });
+        };
+        
+        // Observer pour déclencher l'animation des chiffres
+        const statsSection = document.querySelector('.stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
+    </script>
+</body>
+</html>
