@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Tog Multiservices Groupe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS pour la palette de couleurs */
+        :root {
+            --primary-blue: #1e88e5;
+            --secondary-blue: #64b5f6;
+            --light-blue: #e3f2fd;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Styles du header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Section Hero Blog */
+        .blog-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(30, 136, 229, 0.85), rgba(100, 181, 246, 0.85)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .blog-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .blog-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Section Blog */
+        .blog {
+            padding: 80px 0;
+            background-color: var(--gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-blue);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Layout Blog */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Articles Principaux */
+        .featured-article {
+            margin-bottom: 50px;
+        }
+
+        .article-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            margin-bottom: 30px;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.1);
+        }
+
+        .article-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .article-content {
+            padding: 30px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .article-meta span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .article-meta i {
+            margin-right: 5px;
+            color: var(--primary-blue);
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .article-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .article-title a:hover {
+            color: var(--primary-blue);
+        }
+
+        .article-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .article-card.small .article-image {
+            height: 200px;
+        }
+
+        .article-card.small .article-content {
+            padding: 20px;
+        }
+
+        .article-card.small .article-title {
+            font-size: 1.2rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-widget {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-widget:last-child {
+            margin-bottom: 0;
+        }
+
+        .widget-title {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-blue);
+            position: relative;
+        }
+
+        .widget-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-blue);
+        }
+
+        /* Widget Recherche */
+        .search-form {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 50px 12px 20px;
+            border: 2px solid var(--light-blue);
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-button:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        /* Widget Catégories */
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--light-blue);
+        }
+
+        .categories-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .categories-list a:hover {
+            color: var(--primary-blue);
+        }
+
+        .category-count {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Widget Articles Récents */
+        .recent-posts {
+            list-style: none;
+        }
+
+        .recent-post {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-blue);
+        }
+
+        .recent-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .recent-post-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .recent-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .recent-post:hover .recent-post-image img {
+            transform: scale(1.1);
+        }
+
+        .recent-post-content {
+            flex: 1;
+        }
+
+        .recent-post-title {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .recent-post-title a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .recent-post-title a:hover {
+            color: var(--primary-blue);
+        }
+
+        .recent-post-date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Widget Tags */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .pagination-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .pagination-item {
+            margin: 0 5px;
+        }
+
+        .pagination-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .pagination-link:hover, .pagination-link.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Section Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background: linear-gradient(rgba(30, 136, 229, 0.9), rgba(100, 181, 246, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+        }
+
+        .newsletter-button {
+            padding: 0 30px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-button:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .blog-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .blog-hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-button {
+                border-radius: 30px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .article-meta span {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">TMG</div>
+                <div class="logo-text">Tog Multiservices</div>
+            </a>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Nos Services</a></li>
+                    <li><a href="produits.html">Nos Produits</a></li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Hero Blog -->
+    <section class="blog-hero">
+        <div class="container blog-hero-content">
+            <h1>Notre Blog</h1>
+            <p>Découvrez nos derniers articles, conseils et actualités sur nos différents secteurs d'activité</p>
+            <a href="#blog-content" class="btn btn-outline">Explorer les articles</a>
+        </div>
+    </section>
+
+    <!-- Section Blog -->
+    <section class="blog" id="blog-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Articles Récents</h2>
+                <p>Restez informé avec nos dernières publications sur nos services et l'actualité de nos secteurs</p>
+            </div>
+            
+            <div class="blog-container">
+                <div class="blog-content">
+                    <!-- Article Vedette -->
+                    <div class="featured-article">
+                        <div class="article-card fade-in">
+                            <div class="article-image">
+                                <span class="article-badge">À la une</span>
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Innovations en Sécurité">
+                            </div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 15 Nov 2023</span>
+                                    <span><i class="far fa-user"></i> Koffi Adjamonsi</span>
+                                    <span><i class="far fa-comment"></i> 12 Commentaires</span>
+                                </div>
+                                <h2 class="article-title"><a href="#">Les Innovations Technologiques en Sécurité Privée en 2023</a></h2>
+                                <p class="article-excerpt">Découvrez comment les nouvelles technologies comme l'IA et l'analyse de données transforment le secteur de la sécurité privée et comment Tog Multiservices intègre ces avancées pour protéger vos biens.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Sécurité</span>
+                                    <span class="tag">Technologie</span>
+                                    <span class="tag">Innovation</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Lire l'article</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Grille d'articles -->
+                    <div class="articles-grid">
+                        <!-- Article 1 -->
+                        <div class="article-card small fade-in">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Services Traiteur">
+                            </div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 10 Nov 2023</span>
+                                    <span><i class="far fa-user"></i> Afi Mensah</span>
+                                </div>
+                                <h3 class="article-title"><a href="#">Les Tendances en Services Traiteur pour Événements d'Entreprise</a></h3>
+                                <p class="article-excerpt">Exploration des nouvelles tendances culinaires et de service qui font le succès des événements professionnels cette année.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Traiteur</span>
+                                    <span class="tag">Événements</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 2 -->
+                        <div class="article-card small fade-in">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jardinage Écologique">
+                            </div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 5 Nov 2023</span>
+                                    <span><i class="far fa-user"></i> Komlan Agbeto</span>
+                                </div>
+                                <h3 class="article-title"><a href="#">Jardinage Écologique : Méthodes Durables pour Espaces Verts</a></h3>
+                                <p class="article-excerpt">Guide complet sur les pratiques de jardinage respectueuses de l'environnement que nous appliquons dans tous nos projets.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Jardinage</span>
+                                    <span class="tag">Écologie</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 3 -->
+                        <div class="article-card small fade-in">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sécurité Hôtelière">
+                            </div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 28 Oct 2023</span>
+                                    <span><i class="far fa-user"></i> Eyram Dosseh</span>
+                                </div>
+                                <h3 class="article-title"><a href="#">Sécurité Hôtelière : Protéger Vos Clients et Votre Réputation</a></h3>
+                                <p class="article-excerpt">Les meilleures pratiques pour assurer la sécurité dans les établissements hôteliers sans compromettre l'expérience client.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Hôtellerie</span>
+                                    <span class="tag">Sécurité</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Article 4 -->
+                        <div class="article-card small fade-in">
+                            <div class="article-image">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Produits Phytosanitaires">
+                            </div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span><i class="far fa-calendar"></i> 20 Oct 2023</span>
+                                    <span><i class="far fa-user"></i> Koffi Adjamonsi</span>
+                                </div>
+                                <h3 class="article-title"><a href="#">L'Avantage des Produits Phytosanitaires Naturels</a></h3>
+                                <p class="article-excerpt">Pourquoi choisir des solutions naturelles pour la protection des cultures et l'entretien des espaces verts.</p>
+                                <div class="article-tags">
+                                    <span class="tag">Phytosanitaire</span>
+                                    <span class="tag">Naturel</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <ul class="pagination-list">
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-link active">1</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-link">2</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-link">3</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-link">Suivant</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Widget Recherche -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Recherche</h3>
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="Rechercher...">
+                            <button type="submit" class="search-button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Widget Catégories -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Catégories</h3>
+                        <ul class="categories-list">
+                            <li>
+                                <a href="#">
+                                    <span>Sécurité & Investigation</span>
+                                    <span class="category-count">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Hôtellerie & Restauration</span>
+                                    <span class="category-count">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Entretien & Jardinage</span>
+                                    <span class="category-count">10</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Services Traiteur</span>
+                                    <span class="category-count">6</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Produits Phytosanitaires</span>
+                                    <span class="category-count">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Actualités</span>
+                                    <span class="category-count">7</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Widget Articles Récents -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Articles Récents</h3>
+                        <ul class="recent-posts">
+                            <li class="recent-post">
+                                <div class="recent-post-image">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Article récent">
+                                </div>
+                                <div class="recent-post-content">
+                                    <h4 class="recent-post-title">
+                                        <a href="#">Les Avantages de la Location de Matériel Professionnel</a>
+                                    </h4>
+                                    <span class="recent-post-date">12 Nov 2023</span>
+                                </div>
+                            </li>
+                            <li class="recent-post">
+                                <div class="recent-post-image">
+                                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Article récent">
+                                </div>
+                                <div class="recent-post-content">
+                                    <h4 class="recent-post-title">
+                                        <a href="#">Comment Choisir le Bon Service de Sécurité pour Votre Entreprise</a>
+                                    </h4>
+                                    <span class="recent-post-date">8 Nov 2023</span>
+                                </div>
+                            </li>
+                            <li class="recent-post">
+                                <div class="recent-post-image">
+                                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Article récent">
+                                </div>
+                                <div class="recent-post-content">
+                                    <h4 class="recent-post-title">
+                                        <a href="#">Tendances en Aménagement Paysager Commercial</a>
+                                    </h4>
+                                    <span class="recent-post-date">3 Nov 2023</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Widget Tags -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Tags Populaires</h3>
+                        <div class="tags-cloud">
+                            <span class="tag">Sécurité</span>
+                            <span class="tag">Hôtellerie</span>
+                            <span class="tag">Jardinage</span>
+                            <span class="tag">Traiteur</span>
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Écologie</span>
+                            <span class="tag">Conseils</span>
+                            <span class="tag">Actualités</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content fade-in">
+                <h2>Restez Informé</h2>
+                <p>Abonnez-vous à notre newsletter pour recevoir nos derniers articles, conseils et actualités directement dans votre boîte mail.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Votre adresse email" required>
+                    <button type="submit" class="newsletter-button">S'abonner</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tog Multiservices</h3>
+                    <p>Votre partenaire de confiance pour tous vos besoins en services multisectoriels. Qualité, professionnalisme et innovation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Nos Services</a></li>
+                        <li><a href="produits.html">Nos Produits</a></li>
+                        <li><a href="apropos.html">À Propos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Catégories du Blog</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sécurité & Investigation</a></li>
+                        <li><a href="#">Hôtellerie & Restauration</a></li>
+                        <li><a href="#">Entretien & Jardinage</a></li>
+                        <li><a href="#">Services Traiteur</a></li>
+                        <li><a href="#">Produits Phytosanitaires</a></li>
+                        <li><a href="#">Actualités & Conseils</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contactez-nous</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Avenue des Services, Lomé, Togo</li>
+                        <li><i class="fas fa-phone"></i> +228 12 34 56 78</li>
+                        <li><i class="fas fa-envelope"></i> info@togmultiservices.com</li>
+                        <li><i class="fas fa-clock"></i> Lun - Ven: 8h00 - 18h00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tog Multiservices Groupe. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Animation au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Vérifier au chargement
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Vérifier au défilement
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Recherche
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = this.querySelector('.search-input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Recherche pour: ${searchTerm}`);
+                // Ici vous pouvez implémenter la logique de recherche réelle
+            }
+        });
+
+        // Newsletter
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            if (email.trim() !== '') {
+                alert(`Merci pour votre inscription avec: ${email}`);
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
