@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Produits - Tog Multiservices Groupe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS pour la palette de couleurs */
+        :root {
+            --primary-blue: #1e88e5;
+            --secondary-blue: #64b5f6;
+            --light-blue: #e3f2fd;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Styles du header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Section Hero Produits */
+        .products-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(30, 136, 229, 0.85), rgba(100, 181, 246, 0.85)), url('https://images.unsplash.com/photo-1563013546-77f13c5eeb4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .products-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .products-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .products-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Section Produits */
+        .products {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-blue);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Grille de produits */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-category {
+            color: var(--secondary-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .old-price {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .product-rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        /* Section Catégories */
+        .categories {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            color: var(--white);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .category-count {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Section CTA */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(rgba(30, 136, 229, 0.9), rgba(100, 181, 246, 0.9)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-blue);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .products-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .products-hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">TMG</div>
+                <div class="logo-text">Tog Multiservices</div>
+            </a>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Nos Services</a></li>
+                    <li><a href="produits.html" class="active">Nos Produits</a></li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Hero Produits -->
+    <section class="products-hero">
+        <div class="container products-hero-content">
+            <h1>Nos Produits de Qualité</h1>
+            <p>Découvrez notre gamme de produits innovants et de haute qualité pour répondre à tous vos besoins professionnels et personnels.</p>
+            <a href="#products" class="btn btn-outline">Explorer nos produits</a>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Produits Phares</h2>
+                <p>Des produits soigneusement sélectionnés pour leur qualité, leur durabilité et leur performance exceptionnelle</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produit 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">Nouveau</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Système de Sécurité Intelligent">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Sécurité</span>
+                        <h3 class="product-title">Système de Sécurité Intelligent</h3>
+                        <p class="product-description">Système de surveillance complet avec caméras HD, détecteurs de mouvement et application mobile.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">249.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">Promo</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kit Jardinage Professionnel">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Jardinage</span>
+                        <h3 class="product-title">Kit Jardinage Professionnel</h3>
+                        <p class="product-description">Ensemble complet d'outils de jardinage professionnels pour l'entretien des espaces verts.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="old-price">89.900 FCFA</span>
+                                <span class="price">74.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Équipement Hôtelier Premium">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Hôtellerie</span>
+                        <h3 class="product-title">Équipement Hôtelier Premium</h3>
+                        <p class="product-description">Linge de maison et accessoires hôteliers de haute qualité pour établissements 4-5 étoiles.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">À partir de 599.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">Best-seller</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Équipement Traiteur Complet">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Traiteur</span>
+                        <h3 class="product-title">Équipement Traiteur Complet</h3>
+                        <p class="product-description">Matériel professionnel de restauration et service traiteur pour événements jusqu'à 200 personnes.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">1.299.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 5 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Produits Phytosanitaires Bio">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Agriculture</span>
+                        <h3 class="product-title">Produits Phytosanitaires Bio</h3>
+                        <p class="product-description">Solutions naturelles pour la protection des cultures, respectueuses de l'environnement.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">À partir de 24.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 6 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">Économique</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Matériel Briquetterie Pro">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Construction</span>
+                        <h3 class="product-title">Matériel Briquetterie Pro</h3>
+                        <p class="product-description">Outils et équipements professionnels pour travaux de maçonnerie et construction.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">189.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 7 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Système d'Irrigation Intelligent">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Jardinage</span>
+                        <h3 class="product-title">Système d'Irrigation Intelligent</h3>
+                        <p class="product-description">Système d'arrosage automatique programmable avec capteurs d'humidité pour économie d'eau.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">129.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 8 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">Nouveau</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Équipement de Nettoyage Industriel">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Entretien</span>
+                        <h3 class="product-title">Équipement de Nettoyage Industriel</h3>
+                        <p class="product-description">Machines et produits professionnels pour l'entretien des espaces industriels et commerciaux.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">459.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 9 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Location Matériel BTP">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Location</span>
+                        <h3 class="product-title">Location Matériel BTP</h3>
+                        <p class="product-description">Service de location d'équipements BTP professionnels avec opérateurs qualifiés.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">À partir de 49.900 FCFA/jour</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Louer</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produit 10 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge">Écologique</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kit Énergie Solaire Domestique">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">Énergie</span>
+                        <h3 class="product-title">Kit Énergie Solaire Domestique</h3>
+                        <p class="product-description">Solution complète d'énergie solaire pour alimentation domestique et petite entreprise.</p>
+                        <div class="product-price">
+                            <div>
+                                <span class="price">899.900 FCFA</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="contact.html" class="btn btn-small btn-primary">Commander</a>
+                            <a href="#" class="btn btn-small btn-secondary">Détails</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Catégories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Catégories de Produits</h2>
+                <p>Explorez nos différentes gammes de produits par secteur d'activité</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card fade-in">
+                    <i class="fas fa-shield-alt category-icon"></i>
+                    <h3 class="category-title">Sécurité</h3>
+                    <p class="category-count">12 produits</p>
+                </div>
+                
+                <div class="category-card fade-in">
+                    <i class="fas fa-leaf category-icon"></i>
+                    <h3 class="category-title">Jardinage</h3>
+                    <p class="category-count">8 produits</p>
+                </div>
+                
+                <div class="category-card fade-in">
+                    <i class="fas fa-concierge-bell category-icon"></i>
+                    <h3 class="category-title">Hôtellerie</h3>
+                    <p class="category-count">15 produits</p>
+                </div>
+                
+                <div class="category-card fade-in">
+                    <i class="fas fa-tools category-icon"></i>
+                    <h3 class="category-title">Construction</h3>
+                    <p class="category-count">10 produits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in">Vous ne trouvez pas ce que vous cherchez ?</h2>
+            <p class="fade-in">Contactez-nous pour des produits sur mesure ou des demandes spéciales. Notre équipe est à votre disposition pour vous conseiller.</p>
+            <a href="contact.html" class="btn fade-in">Demander un produit personnalisé</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tog Multiservices</h3>
+                    <p>Votre partenaire de confiance pour tous vos besoins en services multisectoriels. Qualité, professionnalisme et innovation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Nos Services</a></li>
+                        <li><a href="produits.html">Nos Produits</a></li>
+                        <li><a href="apropos.html">À Propos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Catégories de Produits</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sécurité & Investigation</a></li>
+                        <li><a href="#">Jardinage & Entretien</a></li>
+                        <li><a href="#">Hôtellerie & Restauration</a></li>
+                        <li><a href="#">Construction & Briquetterie</a></li>
+                        <li><a href="#">Produits Phytosanitaires</a></li>
+                        <li><a href="#">Location de Matériels</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contactez-nous</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Avenue des Services, Lomé, Togo</li>
+                        <li><i class="fas fa-phone"></i> +228 12 34 56 78</li>
+                        <li><i class="fas fa-envelope"></i> info@togmultiservices.com</li>
+                        <li><i class="fas fa-clock"></i> Lun - Ven: 8h00 - 18h00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tog Multiservices Groupe. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Animation au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Vérifier au chargement
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Vérifier au défilement
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
