@@ -3,435 +3,757 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zipper - Une histoire de patience et d'amour</title>
+    <title>Tog Multiservices Groupe - Accueil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap');
-        
+        /* Variables CSS pour la palette de couleurs */
+        :root {
+            --primary-blue: #1e88e5;
+            --secondary-blue: #64b5f6;
+            --light-blue: #e3f2fd;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #faf9f7 0%, #f3f1ed 100%);
-            color: #333;
             line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
             overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
         }
-        
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23b89f80' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            z-index: -1;
-        }
-        
+
         .container {
-            max-width: 900px;
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            transition: filter 0.5s ease;
         }
-        
-        .blur {
-            filter: blur(5px);
-            pointer-events: none;
-            user-select: none;
-        }
-        
+
+        /* Styles du header */
         header {
-            text-align: center;
-            padding: 80px 0 40px;
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards 0.5s;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
         }
-        
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Section Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(30, 136, 229, 0.8), rgba(100, 181, 246, 0.8)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
             font-size: 3.5rem;
-            letter-spacing: 2px;
             margin-bottom: 20px;
-            color: #2c2c2c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Services */
+        .services {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
         }
-        
-        h1::after {
+
+        .section-title h2::after {
             content: '';
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background-color: #b89f80;
-        }
-        
-        .intro {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 60px;
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards 1s;
-        }
-        
-        .story {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1.2s ease forwards 1.5s;
-        }
-        
-        .story p {
-            margin-bottom: 25px;
-            text-align: justify;
-        }
-        
-        .image-container {
-            text-align: center;
-            margin: 60px 0;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-radius: 3px;
-            opacity: 0;
-            transform: scale(0.95);
-            animation: zoomIn 1.2s ease forwards 2s;
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            height: auto;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-blue);
             border-radius: 2px;
-            transition: transform 0.5s ease;
         }
-        
-        .image-container img:hover {
-            transform: scale(1.02);
+
+        .section-title p {
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
         }
-        
-        .caption {
-            font-style: italic;
-            color: #777;
-            margin-top: 15px;
-            font-size: 0.9rem;
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-        
-        .quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             text-align: center;
-            margin: 60px 0;
-            padding: 40px 20px;
-            background-color: #f3f1ed;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards 2.5s;
+            padding: 30px 20px;
         }
-        
-        .quote::before, .quote::after {
-            content: '"';
-            font-size: 4rem;
-            color: #b89f80;
-            position: absolute;
-            opacity: 0.3;
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-        
-        .quote::before {
-            top: 10px;
-            left: 20px;
-        }
-        
-        .quote::after {
-            bottom: -20px;
-            right: 20px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px 0 100px;
-            color: #888;
-            font-size: 0.9rem;
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards 3s;
-        }
-        
-        /* Notification Bar */
-        .notification-bar {
-            position: fixed;
-            bottom: -200px;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f6f3 100%);
-            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            transition: bottom 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-            border-top: 1px solid rgba(184, 159, 128, 0.2);
-        }
-        
-        .notification-bar.active {
-            bottom: 0;
-        }
-        
-        .notification-content {
-            display: flex;
-            align-items: center;
-            max-width: 900px;
-            width: 100%;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        
-        .notification-text {
-            flex: 1;
-        }
-        
-        .notification-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-            color: #2c2c2c;
-            font-weight: 600;
-        }
-        
-        .notification-message {
-            color: #555;
-            font-size: 0.95rem;
-        }
-        
-        .notification-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .offer-button {
-            background: linear-gradient(to right, #b89f80, #a58a6d);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(184, 159, 128, 0.3);
-            white-space: nowrap;
-        }
-        
-        .offer-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(184, 159, 128, 0.4);
-        }
-        
-        .close-button {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            color: #999;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            width: 32px;
-            height: 32px;
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-blue);
+            font-size: 30px;
+            transition: var(--transition);
         }
-        
-        .close-button:hover {
+
+        .service-card:hover .service-icon {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
             color: #666;
-            background-color: rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
         }
-        
-        .progress-bar {
+
+        /* Section À propos */
+        .about {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Section CTA */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(rgba(30, 136, 229, 0.9), rgba(100, 181, 246, 0.9)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            height: 3px;
-            width: 100%;
-            background-color: rgba(184, 159, 128, 0.2);
-            overflow: hidden;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-blue);
         }
-        
-        .progress {
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(to right, #b89f80, #a58a6d);
-            animation: progressAnimation 10s linear forwards;
+
+        .footer-column p {
+            margin-bottom: 20px;
+            color: #bbb;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        .footer-links {
+            list-style: none;
         }
-        
-        @keyframes fadeUp {
-            from { 
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
-            to { 
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        @keyframes zoomIn {
-            from { 
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to { 
-                opacity: 1;
-                transform: scale(1);
-            }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        
-        @keyframes progressAnimation {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
             }
             
-            .story {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
                 font-size: 1rem;
             }
-            
-            .quote {
-                font-size: 1.3rem;
-                padding: 30px 15px;
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
             }
             
-            .notification-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
             
-            .notification-actions {
-            width: 100%;
-                justify-content: center;
-            }
-            
-            .notification-title {
-                font-size: 1.3rem;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="main-content">
-        <header>
-            <h1>Zipper</h1>
-        </header>
-        
-        <div class="intro">
-            Une histoire de patience, de compassion et de confiance gagnée
-        </div>
-        
-        <div class="story">
-            <p>Pendant plus de cinq ans, j'ai nourri un chat que je ne pouvais pas toucher. Je l'avais appelé Zipper parce qu'il disparaissait à la seconde où je m'approchais trop. Il vivait dans l'ombre. Il n'avait pas besoin de moi. Du moins, c'est ce que je pensais.</p>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">TMG</div>
+                <div class="logo-text">Tog Multiservices</div>
+            </a>
             
-            <p>Un matin, je suis sortie et je l'ai vu allongé, immobile. Il ne courait pas. Il avait une profonde blessure près de l'œil. J'ai cru qu'il allait mourir. Je l'ai mis dans une cage de transport et emmené chez un vétérinaire.</p>
-            
-            <p>Ils l'ont gardé quatre jours. Je les avais prévenus : c'est un animal sauvage, soyez prudents. Mais quand je suis venu le chercher, une technicienne le tenait dans ses bras. Calme. Doux. Rien à voir avec le chat sauvage que je connaissais. Il s'est avéré que la « blessure » ​​était un kyste rompu. La douleur l'avait apprivoisé, mais quelque chose d'autre persistait.</p>
-            
-            <p>Il n'est jamais retourné dans le jardin. Il est devenu un membre à part entière de la maison. Toujours nerveux. Toujours prompt à donner des coups. Mais affectueux à sa manière.</p>
-        </div>
-        
-        <div class="quote">
-            Il a choisi le moment. Il m'a choisie.
-        </div>
-        
-        <div class="image-container">
-            <img src="image.jpeg" alt="Zipper, le chat qui a appris à faire confiance">
-            <div class="caption">Zipper, après avoir trouvé son foyer pour toujours</div>
-        </div>
-        
-        <footer>
-            <p>Une histoire sur la patience et le pouvoir transformateur de la compassion</p>
-        </footer>
-    </div>
-    
-    <!-- Notification Bar -->
-    <div class="notification-bar" id="notification">
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
-        </div>
-        <div class="notification-content">
-            <div class="notification-text">
-                <h3 class="notification-title">Continuez votre lecture</h3>
-                <p class="notification-message">Découvrez d'autres histoires captivantes en remplissant notre offre spéciale de 10 secondes</p>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
             </div>
-            <div class="notification-actions">
-                <button class="offer-button" id="offer-button">
-                    <i class="fas fa-gift"></i> Voir l'offre
-                </button>
-                <button class="close-button" id="close-button">
-                    <i class="fas fa-times"></i>
-                </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="services.html">Nos Services</a></li>
+                    <li><a href="produits.html">Nos Produits</a></li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Votre Partenaire Multiservices de Confiance</h1>
+            <p>Découvrez notre gamme complète de services professionnels pour répondre à tous vos besoins, de l'hôtellerie à la sécurité en passant par l'entretien et bien plus encore.</p>
+            <a href="contact.html" class="btn">Contactez-nous</a>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Domaines d'Expertise</h2>
+                <p>Nous offrons une large gamme de services professionnels pour répondre à tous vos besoins</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Hôtellerie & Restauration</h3>
+                    <p>Services complets d'hôtellerie et de restauration pour particuliers et professionnels.</p>
+                    <a href="services.html#hotellerie" class="btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Entretien & Jardinage</h3>
+                    <p>Entretien d'immeubles, jardinage et soins des espaces verts pour un environnement impeccable.</p>
+                    <a href="services.html#entretien" class="btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Services Traiteur</h3>
+                    <p>Services traiteur de qualité pour vos événements professionnels et personnels.</p>
+                    <a href="services.html#traiteur" class="btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sécurité & Investigation</h3>
+                    <p>Services de sécurité et d'investigation pour protéger vos biens et vos informations.</p>
+                    <a href="services.html#securite" class="btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Briquetterie</h3>
+                    <p>Services spécialisés en briquetterie pour tous vos besoins de construction et rénovation.</p>
+                    <a href="services.html#briquetterie" class="btn">En savoir plus</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Produits Phytosanitaires</h3>
+                    <p>Produits naturels et phytosanitaires pour l'agriculture et l'entretien des espaces verts.</p>
+                    <a href="services.html#phyto" class="btn">En savoir plus</a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>À Propos de Tog Multiservices Groupe</h2>
+                    <p>Fondé en 2010, Tog Multiservices Groupe est devenu un leader dans le domaine des services multisectoriels. Notre mission est d'offrir des solutions complètes et professionnelles à nos clients, qu'ils soient particuliers ou entreprises.</p>
+                    <p>Avec une équipe d'experts dévoués et des années d'expérience, nous nous engageons à fournir des services de qualité supérieure dans tous nos domaines d'expertise.</p>
+                    <p>Notre approche client-centrée et notre souci du détail nous ont permis de bâtir une réputation solide basée sur la confiance et l'excellence.</p>
+                    <a href="apropos.html" class="btn">En savoir plus sur nous</a>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Équipe Tog Multiservices">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in">Prêt à collaborer avec nous ?</h2>
+            <p class="fade-in">Contactez-nous dès aujourd'hui pour discuter de vos besoins et découvrir comment nos services peuvent vous aider à atteindre vos objectifs.</p>
+            <a href="contact.html" class="btn fade-in">Nous Contacter</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tog Multiservices</h3>
+                    <p>Votre partenaire de confiance pour tous vos besoins en services multisectoriels. Qualité, professionnalisme et innovation.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Nos Services</a></li>
+                        <li><a href="produits.html">Nos Produits</a></li>
+                        <li><a href="apropos.html">À Propos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Nos Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#hotellerie">Hôtellerie & Restauration</a></li>
+                        <li><a href="services.html#entretien">Entretien & Jardinage</a></li>
+                        <li><a href="services.html#traiteur">Services Traiteur</a></li>
+                        <li><a href="services.html#securite">Sécurité & Investigation</a></li>
+                        <li><a href="services.html#briquetterie">Briquetterie</a></li>
+                        <li><a href="services.html#phyto">Produits Phytosanitaires</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contactez-nous</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Avenue des Services, Lomé, Togo</li>
+                        <li><i class="fas fa-phone"></i> +228 12 34 56 78</li>
+                        <li><i class="fas fa-envelope"></i> info@togmultiservices.com</li>
+                        <li><i class="fas fa-clock"></i> Lun - Ven: 8h00 - 18h00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tog Multiservices Groupe. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mainContent = document.getElementById('main-content');
-            const notification = document.getElementById('notification');
-            const closeButton = document.getElementById('close-button');
-            const offerButton = document.getElementById('offer-button');
-            const progressBar = document.getElementById('progress');
-            
-            let notificationShown = false;
-            let countdownValue = 10;
-            
-            // Afficher la notification après 7 secondes
-            setTimeout(function() {
-                if (!notificationShown) {
-                    mainContent.classList.add('blur');
-                    notification.classList.add('active');
-                    notificationShown = true;
-                    
-                    // Démarrer le compte à rebours visuel
-                    progressBar.style.animation = 'progressAnimation 10s linear forwards';
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Animation au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
                 }
-            }, 7000);
-            
-            // Gérer le clic sur le bouton de fermeture
-            closeButton.addEventListener('click', function() {
-                notification.classList.remove('active');
-                mainContent.classList.remove('blur');
-                notificationShown = false;
             });
-            
-            // Gérer le clic sur le bouton d'offre
-            offerButton.addEventListener('click', function() {
-                // Rediriger vers la page d'offre
-                window.location.href = "https://masenkotrkr.com/quoris";
+        };
+        
+        // Vérifier au chargement
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Vérifier au défilement
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav ul').classList.remove('active');
             });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
         });
     </script>
 </body>
